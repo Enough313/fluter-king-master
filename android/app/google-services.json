@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "50102160436",
+    "project_id": "flutter-king",
+    "storage_bucket": "flutter-king.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:50102160436:android:47bbc50425e4c9a0b74e61",
+        "android_client_info": {
+          "package_name": "enoughtechnology.com.flutter_king_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "50102160436-t7n2m59dr3h4bi32o064tngibdq3uhga.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "enoughtechnology.com.flutter_king_app",
+            "certificate_hash": "f4c22cfc44fcdcf5b1bb14f671f1a0d90169fdd2"
+          }
+        },
+        {
+          "client_id": "50102160436-l23m1ffp2m67okni9t93u5h9otj9id26.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtDZZzgJ_59P7DqiEN1giaHV-21gBFpZo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "50102160436-l23m1ffp2m67okni9t93u5h9otj9id26.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
