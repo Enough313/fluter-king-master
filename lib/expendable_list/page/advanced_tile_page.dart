@@ -4,12 +4,12 @@ import 'package:flutter_king_master/expendable_list/model/advanced_tile.dart';
 
 import '../../detail_widget_class.dart';
 
-class AdvancedTilePage extends StatefulWidget {
+class ExpandableList extends StatefulWidget {
   @override
-  _AdvancedTilePageState createState() => _AdvancedTilePageState();
+  _ExpandableListState createState() => _ExpandableListState();
 }
 
-class _AdvancedTilePageState extends State<AdvancedTilePage> {
+class _ExpandableListState extends State<ExpandableList> {
 
   @override
   Widget build(BuildContext context) => Scaffold(

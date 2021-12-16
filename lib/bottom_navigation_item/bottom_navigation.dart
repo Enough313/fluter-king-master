@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_king_master/bottom_navigation_item/advance_item.dart';
 import 'package:flutter_king_master/check_internet_connection/connectivity_provider.dart';
 import 'package:flutter_king_master/flutter_king_home.dart';
+import 'package:flutter_king_master/main_listView_folder/full_listview.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
@@ -22,10 +23,11 @@ class _navigationState extends State<navigation> {
   static List<Widget> _widgetOptions = <Widget>[
     flutter_king_home(),
     advance_page(),
-    Text(
-      'Index 2: Ui design',
-      style: optionStyle,
-    ),
+    // Text(
+    //   'Index 2: Ui design',
+    //   style: optionStyle,
+    // ),
+    my_listView(),
     Text(
       'Index 2: Q/a',
       style: optionStyle,
@@ -34,6 +36,7 @@ class _navigationState extends State<navigation> {
       'Index 2: Admin',
       style: optionStyle,
     ),
+    
   ];
 
   void _onItemTapped(int index) {
@@ -74,7 +77,7 @@ class _navigationState extends State<navigation> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: 'Admin',
+            label: 'Account',
           ),
         ],
         selectedItemColor: Color(0Xff2699FB),

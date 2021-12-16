@@ -3,7 +3,7 @@ import 'package:flutter_king_master/main_listView_folder/fruitDataModel/FruitDat
 
 class FruitData_full_Detail extends StatelessWidget {
   final FruitDataModel fruitDataModel;
-  const FruitData_full_Detail({ Key key,   this.fruitDataModel})
+  const FruitData_full_Detail({ Key key,    this.fruitDataModel})
       : super(key: key);
 
   @override

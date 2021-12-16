@@ -26,6 +26,26 @@ final advancedTiles = <AdvancedTile>[
       AdvancedTile(title: 'Claymation', icon: Icons.arrow_forward_ios),
     ],
   ),
+  AdvancedTile(
+    icon: Icons.widgets_outlined,
+    title: 'scren',
+    tiles: [
+      AdvancedTile(title: 'Rotoscope Animation', icon: Icons.arrow_forward_ios),
+      AdvancedTile(title: 'Motion Capture.', icon: Icons.arrow_forward_ios),
+      AdvancedTile(title: 'Typography Animation', icon: Icons.arrow_forward_ios),
+      AdvancedTile(title: 'Claymation', icon: Icons.arrow_forward_ios),
+    ],
+  ),
+  AdvancedTile(
+    icon: Icons.widgets_outlined,
+    title: 'genral design',
+    tiles: [
+      AdvancedTile(title: 'Rotoscope Animation', icon: Icons.arrow_forward_ios),
+      AdvancedTile(title: 'Motion Capture.', icon: Icons.arrow_forward_ios),
+      AdvancedTile(title: 'Typography Animation', icon: Icons.arrow_forward_ios),
+      AdvancedTile(title: 'Claymation', icon: Icons.arrow_forward_ios),
+    ],
+  ),
   // AdvancedTile(
   //   icon: Icons.widgets_outlined,
   //   title: 'Animals',
