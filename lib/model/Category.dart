@@ -7,7 +7,7 @@ class Category {
   String title;
   IconData image;
 
-  Category({required this.title, required this.image});
+  Category({  this.title,   this.image});
 }
 
 List<Category> category_list = [

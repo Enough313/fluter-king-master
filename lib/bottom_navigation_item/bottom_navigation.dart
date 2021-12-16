@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_king_master/bottom_navigation_item/advance_item.dart';
+import 'package:flutter_king_master/check_internet_connection/connectivity_provider.dart';
 import 'package:flutter_king_master/flutter_king_home.dart';
+import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
 
 /// This is the stateful widget that the main application instantiates.
 class navigation extends StatefulWidget {
@@ -10,6 +13,9 @@ class navigation extends StatefulWidget {
 
 /// This is the private State class that goes with navigation.
 class _navigationState extends State<navigation> {
+
+
+  
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
@@ -36,6 +42,11 @@ class _navigationState extends State<navigation> {
     });
   }
 
+ @override
+  void initState() {
+    super.initState();
+    Provider.of<ConnectivityProvider>(context, listen: false).startMoitoring();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,6 +55,7 @@ class _navigationState extends State<navigation> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
+          
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
@@ -68,8 +80,11 @@ class _navigationState extends State<navigation> {
         selectedItemColor: Color(0Xff2699FB),
         unselectedItemColor: Colors.black,
         type: BottomNavigationBarType.fixed,
+        currentIndex: _selectedIndex,
+        
         onTap: _onItemTapped,
       ),
     );
   }
+  
 }

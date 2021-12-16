@@ -13,7 +13,10 @@ class Widget_detail extends StatefulWidget {
 class _Widget_detailState extends State<Widget_detail> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Scaffold(
+      body:Center(
+        child:Text(' Expandable data page ')
+      )
       
     );
   }
