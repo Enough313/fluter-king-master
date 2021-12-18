@@ -40,7 +40,7 @@ final List gram = ['250 g', '300 g', '100 g', '270 g', '230 g'];
 // final  List gram = [
   
     
-//     StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
+//     StreamBuilder(
 //       // stream define karta he  k kaha see data la raha he
 //       stream: FirebaseFirestore.instance.collection('screen').snapshots(),
       
@@ -57,8 +57,8 @@ final List gram = ['250 g', '300 g', '100 g', '270 g', '230 g'];
 //         // return Text('${snapshot.data.docs[0]['Price']}');  // ye single data ko retrieve kartahe
 //         return ListView.builder(
 //           itemCount: snapshot.data.docs.length,
-//           itemBuilder: (BuildContext context, int index) {
-//             return Text(snapshot.data.docs[index]['gram']);
+//           itemBuilder: ( context,  index) {
+//             return Text(snapshot.data.docs[index]['gram'][0]);
 //           },
 //         );
 //       },
