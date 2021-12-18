@@ -1,17 +1,17 @@
 // import 'dart:async';
 // import 'dart:ui';
 
-import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter_king_master/check_internet_connection/connectivity_provider.dart';
-import 'package:flutter_king_master/expendable_list/page/advanced_tile_page.dart';
-import 'package:flutter_king_master/main_listView_folder/ListView_All_detail.dart';
-import 'package:flutter_king_master/main_listView_folder/detail_page/fruit_full_detail.dart';
-import 'package:flutter_king_master/main_listView_folder/firestore_data_listview/full_daa_listview.dart';
-import 'package:flutter_king_master/main_listView_folder/full_listview.dart';
-import 'package:flutter_king_master/model/Drawer.dart';
-import 'package:lottie/lottie.dart';
-import 'package:provider/provider.dart';
+// import 'package:flutter/material.dart';
+// import 'package:flutter/rendering.dart';
+// import 'package:flutter_king_master/check_internet_connection/connectivity_provider.dart';
+// import 'package:flutter_king_master/expendable_list/page/advanced_tile_page.dart';
+// import 'package:flutter_king_master/main_listView_folder/ListView_All_detail.dart';
+// import 'package:flutter_king_master/main_listView_folder/detail_page/fruit_full_detail.dart';
+// import 'package:flutter_king_master/main_listView_folder/firestore_data_listview/full_daa_listview.dart';
+// import 'package:flutter_king_master/main_listView_folder/full_listview.dart';
+// import 'package:flutter_king_master/model/Drawer.dart';
+// import 'package:lottie/lottie.dart';
+// import 'package:provider/provider.dart';
 
 // class flutter_king_home extends StatefulWidget {
 //   @override
@@ -287,12 +287,6 @@ import 'package:provider/provider.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase/firestore.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_king_master/main_listView_folder/firestore_data_listview/detail_page.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-
 
 class flutter_king_home extends StatefulWidget {
   @override
@@ -300,8 +294,6 @@ class flutter_king_home extends StatefulWidget {
 }
 
 class _flutter_king_homeState extends State<flutter_king_home> {
-  final firebase = FirebaseFirestore.instance.collection('screen');
-
   static List<String> otp_item = [
     'OTP',
     'SignIn',
@@ -330,7 +322,6 @@ class _flutter_king_homeState extends State<flutter_king_home> {
       name_item.length,
       (index) => AllDataModel(
           '${otp_item[index]}', '${name_item[index]}', '${imageurl[index]}'));
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -338,7 +329,8 @@ class _flutter_king_homeState extends State<flutter_king_home> {
       home: Scaffold(
         backgroundColor: Color(0xffFFD700),
         appBar: appBar(context),
-        body: Column(
+        body:
+         Column(
           children: [
             Padding(
               padding: const EdgeInsets.only(left: 15),
@@ -359,225 +351,78 @@ class _flutter_king_homeState extends State<flutter_king_home> {
               ),
             ),
             // Code for ListView
-          
-            StreamBuilder(
-        stream: firebase.snapshots(),
-        builder: (context, AsyncSnapshot snapshot) {
-          if (snapshot.hasError) {
-            Fluttertoast.showToast(msg: "error");
-          }
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
-          }
-          if (!snapshot.hasData) {
-            return Center(child: CircularProgressIndicator());
-          }
-
-          final values = snapshot.data.docs;
-          return values.length > 0
-              ? ListView.builder(
-                 scrollDirection: Axis.horizontal,
-                  itemCount: values.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.of(context).pushNamed(
-                            DetailPage.id,
-                            arguments: {
-                              "image": values[index]['image'],
-                              "description": values[index]['description'],
-                            },
-                          );
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                              // color: Color(0Xff777777),
-                              border: Border.all(
-                                  width: 1, color: Colors.grey.shade300),
-                              borderRadius: BorderRadius.circular(15)),
-                          child: Column(
-                            children: [
-                              ClipRRect(
-                                  borderRadius: BorderRadius.circular(10),
-
-                                  // child: Image(
-                                  //     image: CachedNetworkImageProvider(
-                                  //   values[index]['image'][0],
-                                  // )),
-                                  child: Container(
-                                    width: double.infinity,
-                                    height: MediaQuery.of(context).size.height *
-                                        0.5,
-                                    child: Image.network(values[index]['image'],
-                                        fit: BoxFit.cover),
-                                  )
-                                  // child:CachedNetworkImageProvider()
-                                  // child: Image.network(
-                                  //   values[index]['imagesUrl'][0],
-                                  //   fit: BoxFit.cover,
-                                  //   height: 200,
-                                  //   width: 200,
-                                  // ),
-                                  ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(values[index]['description'],
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15)),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(10, 5, 5, 5),
+              child: SizedBox(
+                height: 190,
+                width: double.infinity,
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: name_item.length,
+                    itemBuilder: (context, index) {
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            height: MediaQuery.of(context).size.height * 0.27,
+                            width: MediaQuery.of(context).size.width * 0.37,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15)),
+                            child: Card(
+                              //  elevation: 20,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(bottom: 7),
-                                child: Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.27,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.05,
-                                  decoration: BoxDecoration(
-                                      color: Color(0XffFFBD2E),
-                                      borderRadius: BorderRadius.circular(15)),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Center(
-                                      child: Text('Free',
-                                          style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold)),
-                                    ),
-                                  ),
-                                ),
-                              )
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  ListTile(
+                                      onTap: () {
+                                        SnackBar snackBar = SnackBar(
+                                            content:
+                                                Text("Tapped : ${index + 1}"));
 
-                              // Positioned(
-                              //   //top: 0,
-                              //   bottom: 0,
-                              //   right: 0,
-                              //   left: 0,
-                              //   child: Container(
-                              //     alignment: Alignment.center,
-                              //     width: double.infinity,
-                              //     decoration: BoxDecoration(
-                              //       color: Colors.black87,
-                              //     ),
-                              //     child: Center(
-                              //       child: Row(
-                              //         mainAxisAlignment:
-                              //             MainAxisAlignment.spaceEvenly,
-                              //         children: [
-                              //           Expanded(
-                              //             child:
-                              //                 Text(values[index]['productName'],
-                              //                     textAlign: TextAlign.center,
-                              //                     style: TextStyle(
-                              //                       color: Colors.white,
-                              //                       fontSize: 15,
-                              //                     )),
-                              //           ),
-                              //           Expanded(
-                              //             child: IconButton(
-                              //               onPressed: () {},
-                              //               icon:
-                              //                   Icon(FontAwesomeIcons.cartPlus),
-                              //               color:Colors.white,
-                              //               iconSize: 20,
-                              //             ),
-                              //           ),
-                              //         ],
-                              //       ),
-                              //     ),
-                              //   ),
-                              // ),
-                            ],
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(snackBar);
+                                      },
+                                      title: Column(
+                                        // crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Image.asset(
+                                            itemData[index].imageurl,
+                                            height: 80,
+                                            width: 100,
+                                          ),
+                                          Text(
+                                            itemData[index].otp,
+                                            style: TextStyle(
+                                                fontSize: 15,
+                                                color: Color(0xff022C43)),
+                                          ),
+                                          const SizedBox(
+                                            width: 50,
+                                            child: Divider(
+                                              color: Colors.yellow,
+                                              thickness: 3,
+                                            ),
+                                          ),
+                                          Text(
+                                            itemData[index].name,
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                color: Colors.black),
+                                          ),
+                                        ],
+                                      )),
+                                ],
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-                    );
-                  },
-                )
-              : Center(
-                  child: Text(
-                    'no product found',
-                  ),
-                );
-
-       
-        }
+                        ],
+                      );
+                    }),
+              ),
             ),
-            // Padding(
-            //   padding: const EdgeInsets.fromLTRB(10, 5, 5, 5),
-            //   child: SizedBox(
-            //     height: 190,
-            //     width: double.infinity,
-            //     child: ListView.builder(
-            //         scrollDirection: Axis.horizontal,
-            //         itemCount: name_item.length,
-            //         itemBuilder: (context, index) {
-            //           return Column(
-            //             crossAxisAlignment: CrossAxisAlignment.start,
-            //             children: [
-            //               Container(
-            //                 height: MediaQuery.of(context).size.height * 0.27,
-            //                 width: MediaQuery.of(context).size.width * 0.37,
-            //                 decoration: BoxDecoration(
-            //                     borderRadius: BorderRadius.circular(15)),
-            //                 child: Card(
-            //                   //  elevation: 20,
-            //                   shape: RoundedRectangleBorder(
-            //                     borderRadius: BorderRadius.circular(15),
-            //                   ),
-            //                   child: Column(
-            //                     mainAxisSize: MainAxisSize.min,
-            //                     children: [
-            //                       ListTile(
-            //                           onTap: () {
-            //                             SnackBar snackBar = SnackBar(
-            //                                 content:
-            //                                     Text("Tapped : ${index + 1}"));
-
-            //                             ScaffoldMessenger.of(context)
-            //                                 .showSnackBar(snackBar);
-            //                           },
-            //                           title: Column(
-            //                             // crossAxisAlignment: CrossAxisAlignment.start,
-            //                             children: [
-            //                               Image.asset(
-            //                                 itemData[index].imageurl,
-            //                                 height: 80,
-            //                                 width: 100,
-            //                               ),
-            //                               Text(
-            //                                 itemData[index].otp,
-            //                                 style: TextStyle(
-            //                                     fontSize: 15,
-            //                                     color: Color(0xff022C43)),
-            //                               ),
-            //                               const SizedBox(
-            //                                 width: 50,
-            //                                 child: Divider(
-            //                                   color: Colors.yellow,
-            //                                   thickness: 3,
-            //                                 ),
-            //                               ),
-            //                               Text(
-            //                                 itemData[index].name,
-            //                                 style: TextStyle(
-            //                                     fontSize: 10,
-            //                                     color: Colors.black),
-            //                               ),
-            //                             ],
-            //                           )),
-            //                     ],
-            //                   ),
-            //                 ),
-            //               ),
-            //             ],
-            //           );
-            //         }),
-            //   ),
-            // ),
 
             // code for half page Container
             Container(
@@ -678,86 +523,89 @@ class _flutter_king_homeState extends State<flutter_king_home> {
 
   AppBar appBar(BuildContext context) {
     return AppBar(
-      leading: IconButton(
-          onPressed: () {
-            return showGeneralDialog(
-                context: context,
-                barrierDismissible: true,
-                transitionDuration: Duration(microseconds: 200),
-                barrierLabel: MaterialLocalizations.of(context).dialogLabel,
-                barrierColor: Colors.black.withOpacity(0.5),
-                pageBuilder: (
-                  context,
-                  _,
-                  __,
-                ) {
-                  return Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height * 0.5,
-                        color: Colors.white,
-                        child: Card(
-                            child: ListView(
-                          shrinkWrap: true,
-                          children: [
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Container(
-                                margin: EdgeInsets.only(left: 20, right: 20),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text('adsjflaksdjfk'),
-                                    Text('ldasjlkfjl'),
-                                    ElevatedButton(
-                                        onPressed: () {},
-                                        child: Text('alsdjflksda'))
-                                  ],
-                                )),
-                            Text('alfdskj'),
-                            Text('alfdskj'),
-                            Text('alfdskj'),
-                            Text('alfdskj'),
-                            Text('alfdskj'),
-                            Text('alfdskj'),
-                            Text('alfdskj'),
-                          ],
-                        )),
-                      ),
-                    ],
-                  );
-                },
-                transitionBuilder:
-                    (context, animation, secondaryanimation, child) {
-                  return SlideTransition(
-                      position: CurvedAnimation(
-                              parent: animation, curve: Curves.easeInOutCubic)
-                          .drive(Tween<Offset>(
-                              begin: Offset(0, -1.0), end: Offset.zero)));
-                });
-            // Scaffold.of(context).openDrawer();
-          },
-          icon: Icon(Icons.sort)),
-      elevation: 0,
-      backgroundColor: Color(0xffFFD700),
-      title: Row(
-        children: const [
-          Text(
-            'Flutter',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          Text(
-            '  King',
-            style: TextStyle(
-                color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-        ],
-      ),
-    );
+         leading: IconButton(
+            onPressed: () {
+              return showGeneralDialog(
+                  context: context,
+                  barrierDismissible: true,
+                  transitionDuration: Duration(microseconds: 200),
+                  barrierLabel: MaterialLocalizations.of(context).dialogLabel,
+                  barrierColor: Colors.black.withOpacity(0.5),
+                  pageBuilder: (
+                    context,
+                    _,
+                    __,
+                  ) {
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height * 0.5,
+                          color: Colors.white,
+                          child: Card(
+                              child: ListView(
+                            shrinkWrap: true,
+                            children: [
+                              SizedBox(
+                                height: 15,
+                              ),
+                              Container(
+                                  margin: EdgeInsets.only(left: 20, right: 20),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text('adsjflaksdjfk'),
+                                      Text('ldasjlkfjl'),
+                                      ElevatedButton(
+                                          onPressed: () {},
+                                          child: Text('alsdjflksda'))
+                                    ],
+                                  )),
+                              Text('alfdskj'),
+                              Text('alfdskj'),
+                              Text('alfdskj'),
+                              Text('alfdskj'),
+                              Text('alfdskj'),
+                              Text('alfdskj'),
+                              Text('alfdskj'),
+                            ],
+                          )),
+                        ),
+                      ],
+                    );
+                  },
+                  transitionBuilder:
+                      (context, animation, secondaryanimation, child) {
+                    return SlideTransition(
+                        position: CurvedAnimation(
+                                parent: animation, curve: Curves.easeInOutCubic)
+                            .drive(Tween<Offset>(
+                                begin: Offset(0, -1.0), end: Offset.zero)));
+                  });
+              // Scaffold.of(context).openDrawer();
+            },
+            icon: Icon(Icons.sort)),
+        
+        elevation: 0,
+        backgroundColor: Color(0xffFFD700),
+        title: Row(
+          children: const [
+            Text(
+              'Flutter',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              '  King',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
+       );
   }
 }
 
