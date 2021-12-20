@@ -5,11 +5,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_king_master/bottom_navigation_item/Q&A/q&answer.dart';
 import 'package:flutter_king_master/bottom_navigation_item/bottom_navigation.dart';
 import 'package:flutter_king_master/check_internet_connection/connectivity_provider.dart';
 import 'package:flutter_king_master/flutter_king_home.dart';
 import 'package:flutter_king_master/main_listView_folder/firestore_data_listview/detail_page.dart';
 import 'package:flutter_king_master/main_listView_folder/firestore_data_listview/full_daa_listview.dart';
+import 'package:flutter_king_master/main_listView_folder/fruitDataModel/widget_detailPage/all_widgetDetail.dart';
 import 'package:provider/provider.dart';
 
 // --no-sound-null-safety;
@@ -53,6 +55,9 @@ class king_flutter extends StatelessWidget {
         ListPage.id: (context) => ListPage(),
         DetailPage.id: (context) => DetailPage(),
         flutter_king_home.id: (context) => flutter_king_home(),
+        AllWidgets.id: (context) => AllWidgets(),
+        QuestionAnswer.id: (context) => QuestionAnswer(),
+      
       },
       ),
     

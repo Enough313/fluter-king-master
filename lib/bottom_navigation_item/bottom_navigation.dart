@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_king_master/bottom_navigation_item/Q&A/q&answer.dart';
 import 'package:flutter_king_master/bottom_navigation_item/advance_item.dart';
 import 'package:flutter_king_master/check_internet_connection/connectivity_provider.dart';
 import 'package:flutter_king_master/flutter_king_home.dart';
@@ -26,10 +27,11 @@ class _navigationState extends State<navigation> {
     //   style: optionStyle,
     // ),
     ListPage(),
-    Text(
-      'Index 2: Q/a',
-      style: optionStyle,
-    ),
+    // Text(
+    //   'Index 2: Q/a',
+    //   style: optionStyle,
+    // ),
+    QuestionAnswer(),
     Text(
       'Index 2: Admin',
       style: optionStyle,
@@ -78,8 +80,8 @@ class _navigationState extends State<navigation> {
           ),
         ],
         selectedItemColor: Color(0XffFFBD2E),
-        unselectedItemColor: Colors.white30,
-        backgroundColor: Color(0Xff022C43),
+        unselectedItemColor: Colors.yellow.withOpacity(.60),
+        backgroundColor: Color(0xffF2F4F3),
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
