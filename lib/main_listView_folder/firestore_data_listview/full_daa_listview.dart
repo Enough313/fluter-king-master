@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_king_master/main_listView_folder/firestore_data_listview/detail_page.dart';
@@ -66,8 +67,10 @@ class _ListPageState extends State<ListPage> {
                                     width: double.infinity,
                                     height: MediaQuery.of(context).size.height *
                                         0.5,
-                                    child: Image.network(values[index]['image'],
-                                        fit: BoxFit.cover),
+                                  child: Image(
+                                      image: CachedNetworkImageProvider(
+                                    values[index]['image']
+                                  ),fit: BoxFit.cover,),
                                   )
                                   // child:CachedNetworkImageProvider()
                                   // child: Image.network(

@@ -15,9 +15,6 @@ class navigation extends StatefulWidget {
 
 /// This is the private State class that goes with navigation.
 class _navigationState extends State<navigation> {
-
-
-  
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
@@ -37,7 +34,6 @@ class _navigationState extends State<navigation> {
       'Index 2: Admin',
       style: optionStyle,
     ),
-    
   ];
 
   void _onItemTapped(int index) {
@@ -46,11 +42,12 @@ class _navigationState extends State<navigation> {
     });
   }
 
- @override
+  @override
   void initState() {
     super.initState();
     Provider.of<ConnectivityProvider>(context, listen: false).startMoitoring();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,36 +56,34 @@ class _navigationState extends State<navigation> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
-          
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.home_outlined),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('photo/adavnce.png')),
+            icon: Icon(Icons.view_list),
             label: 'Advance',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('photo/ux.png')),
+            icon: ImageIcon(AssetImage('photo/ui.png')),
             label: 'UX/UI',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('photo/newqa.jpg')),
+            icon: Icon(Icons.comment),
             label: 'Q/A',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Account',
+            icon: Icon(Icons.bookmark_border_outlined),
+            label: 'Bookmark',
           ),
         ],
-        selectedItemColor: Color(0Xff2699FB),
-        unselectedItemColor: Colors.black,
+        selectedItemColor: Color(0XffFFBD2E),
+        unselectedItemColor: Colors.white30,
+        backgroundColor: Color(0Xff022C43),
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
-        
         onTap: _onItemTapped,
       ),
     );
   }
-  
 }
