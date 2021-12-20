@@ -11,7 +11,7 @@ import 'package:flutter_king_master/check_internet_connection/connectivity_provi
 import 'package:flutter_king_master/flutter_king_home.dart';
 import 'package:flutter_king_master/main_listView_folder/firestore_data_listview/detail_page.dart';
 import 'package:flutter_king_master/main_listView_folder/firestore_data_listview/full_daa_listview.dart';
-import 'package:flutter_king_master/main_listView_folder/fruitDataModel/widget_detailPage/all_widgetDetail.dart';
+import 'package:flutter_king_master/main_listView_folder/firestore_data_listview/widget_detailPage/all_widgetDetail.dart';
 import 'package:provider/provider.dart';
 
 // --no-sound-null-safety;

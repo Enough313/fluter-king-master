@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_king_master/main_listView_folder/firestore_data_listview/detail_page.dart';
-import 'package:flutter_king_master/main_listView_folder/fruitDataModel/widget_detailPage/all_widgetDetail.dart';
+import 'package:flutter_king_master/main_listView_folder/firestore_data_listview/widget_detailPage/all_widgetDetail.dart';
 import 'package:flutter_toastr/flutter_toastr.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/cupertino.dart';
